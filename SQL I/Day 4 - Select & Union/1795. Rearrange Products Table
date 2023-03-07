@@ -1,0 +1,13 @@
+/* Write your T-SQL query statement below */
+SELECT
+    product_id,
+    store,
+    price
+FROM
+    Products
+UNPIVOT --Unpivot the price column into three, based on the price in store 1 2 and 3
+    (
+        price 
+        for store in (store1,store2,store3)
+    )
+as unpiv --I don't know if this is needed but it works hey

@@ -1,0 +1,18 @@
+/* Write your T-SQL query statement below */
+SELECT
+    employee_id
+FROM
+    Salaries
+WHERE
+    employee_id not in (SELECT employee_id FROM Employees) --SELECT employee IDs where they do not appear on the second table
+
+UNION --append the queries
+
+SELECT
+    employee_id
+FROM
+    Employees
+WHERE
+    employee_id not in (SELECT employee_id FROM Salaries) --SELECT employee IDs where they do not appear on the second table
+
+    
